@@ -6,15 +6,15 @@
   "contact_email": "ernestoguerraai at gmail.com",
   "google_scholar_url": "https://scholar.google.com/citations?user=6FYxkMwAAAAJ&hl=en",
   "expertise": [
-    "Agentic AI and the redesign of workflows around modern AI tools",
-    "Causal inference with machine learning and deep learning for business decision-making",
-    "Reinforcement learning, experimentation, and prescriptive decision systems",
-    "Edge AI and embedded systems — IIoT sensing, deep-learning condition monitoring",
-    "AI for mining and industrial operations",
-    "Climate resilience, water security, and commodity-price forecasting",
-    "Resource, energy, and environmental economics",
-    "Teaching and mentoring the next generation of data scientists",
+    "Agentic AI — redesigning workflows around modern AI tools and agents",
+    "Causal inference — experimentation and causal ML for business decision-making",
+    "Reinforcement learning — sequential decision-making for prescriptive recommendation systems",
+    "Structural econometrics and time-series modeling — from demand estimation to forecasting",
+    "Computational economics — dynamic programming, optimization, and numerical methods",
+    "Edge AI and IIoT — deep-learning condition monitoring for industrial operations",
+    "Commodity market fundamentals — storage, supply shocks, price spikes, risk analysis, and scenario simulation",
+    "Resource, energy, and environmental economics — climate resilience and water security",
     "Intellectual property strategy for AI — protecting proprietary models, algorithms, and data assets",
-    "Commodity market fundamentals — storage, supply shocks, price spikes, and risk analysis."
+    "Teaching and mentoring — training the next generation of data scientists"
   ]
 }
