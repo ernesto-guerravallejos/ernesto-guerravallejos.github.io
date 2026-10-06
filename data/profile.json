@@ -1,0 +1,18 @@
+{
+  "name": "Ernesto Guerra-Vallejos",
+  "headline": "PhD Economist · Former Startup CTO · Staff Data Scientist",
+  "photo": "img/ernesto.jpg",
+  "bio": "<p>I’m a Staff Data Scientist at <strong>Direct Supply</strong> and an adjunct faculty member at the <strong>Milwaukee School of Engineering</strong> (MSOE University), where I teach graduate courses in statistics, data analytics and predictive analytics. An economist by training, I hold a Ph.D. from <strong>UC Berkeley’s</strong> Agricultural and Resource Economics Department, where I studied as a Fulbright Fellow.</p><p>For more than a decade, I’ve worked at the intersection of economics, econometrics, statistics, machine learning, and artificial intelligence — bringing quantitative rigor and causal inference to the machine learning and deep learning models, prescriptive decision systems, and agentic AI I build, and taking them from research into production to deliver measurable outcomes at scale. Along the way, I’ve held roles at several AI startups, growing from AI Research Scientist to Director of Data Analytics and Chief Technology Officer.</p><p>My interest in business started in Tomé, Chile, selling potatoes and seafood at local markets as a teenager, which led me to a bachelor’s degree in economics at the Universidad de Concepción in 2007. Resource economics runs in the family: one grandfather mined coal in Lota, the other saltpeter in Humberstone, a legacy that drew me to Berkeley and to AI in mining.</p>",
+  "contact_email": "ernestoguerraai at gmail.com",
+  "google_scholar_url": "https://scholar.google.com/citations?user=6FYxkMwAAAAJ&hl=en",
+  "expertise": [
+    "Agentic AI and the redesign of workflows around modern AI tools",
+    "Causal inference with machine learning and deep learning for business decision-making",
+    "Reinforcement learning, experimentation, and prescriptive decision systems",
+    "Edge AI and embedded systems — IIoT sensing, deep-learning condition monitoring",
+    "AI for mining and industrial operations",
+    "Climate resilience, water security, and commodity-price forecasting",
+    "Resource, energy, and environmental economics",
+    "Teaching and mentoring the next generation of data scientists"
+  ]
+}

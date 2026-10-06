@@ -1,0 +1,111 @@
+# Pages CMS configuration — https://pagescms.org
+# Editing panel for Ernesto's website. Every save publishes to the live site in about a minute.
+
+media:
+  input: img
+  output: img
+  categories: [image]
+  rename: safe
+
+content:
+  - name: profile
+    label: About me
+    type: file
+    path: data/profile.json
+    format: json
+    fields:
+      - name: name
+        label: Full name
+        type: string
+        required: true
+        description: Shown at the top of the page, in the menu bar and in the browser tab.
+      - name: headline
+        label: Headline
+        type: string
+        description: The small blue line above your name. Separate items with " · " (space, middle dot, space).
+      - name: photo
+        label: Profile photo
+        type: image
+        description: A square or portrait photo works best (at least 800 px wide).
+        options:
+          extensions: [jpg, jpeg, png, webp]
+      - name: bio
+        label: Bio
+        type: rich-text
+        description: Each paragraph here becomes a paragraph on the site. Use Bold for names you want to stand out.
+        options:
+          format: html
+          media: false
+          switcher: false
+      - name: contact_email
+        label: Contact email (as displayed)
+        type: string
+        description: Written as "name at gmail.com" so spam bots can't easily read it.
+      - name: google_scholar_url
+        label: Google Scholar profile link
+        type: string
+      - name: expertise
+        label: Expertise
+        type: string
+        list: true
+        description: One area per line. Drag to reorder.
+
+  - name: publications
+    label: Publications
+    type: file
+    path: data/publications.json
+    format: json
+    fields:
+      - name: publications
+        label: Publications
+        type: object
+        description: >-
+          The first 5 papers marked "Selected" appear at the top, in this order (drag to reorder).
+          All other papers appear below under "More Publications", newest first, 5 per page.
+        list:
+          collapsible: true
+          collapsed: true
+          summary: "{fields.year} · {fields.title}"
+        fields:
+          - name: featured
+            label: Selected (show at the top)
+            type: boolean
+            default: false
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: authors
+            label: Authors
+            type: string
+            description: Your name is bolded automatically.
+          - name: journal
+            label: Journal or conference
+            type: string
+          - name: year
+            label: Year
+            type: number
+          - name: volume_pages
+            label: Volume / pages
+            type: string
+            description: For example "Vol. 9, pp. 17365–17381" or "Vol. 15, Article 3448".
+          - name: paper_url
+            label: Link to the paper
+            type: string
+          - name: doi
+            label: DOI
+            type: string
+            description: Just the code, for example 10.1109/ACCESS.2021.3051583
+          - name: image
+            label: Figure
+            type: image
+            description: A figure from the paper. Crop out the caption before uploading.
+            options:
+              extensions: [jpg, jpeg, png, webp]
+          - name: description
+            label: Short description
+            type: text
+          - name: bibtex
+            label: BibTeX
+            type: text
+            description: Paste the full BibTeX entry. It appears when visitors click "bibtex".
