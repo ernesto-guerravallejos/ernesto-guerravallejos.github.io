@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en-US" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
   .portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:20px;background:var(--surface)}
   .eyebrow{font:600 12px/16px var(--font-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
   h1{color:var(--accent);font:600 clamp(36px,5vw,56px)/1.05 var(--font-display);white-space:nowrap;letter-spacing:-.015em;margin:12px 0 24px}
-  .lead p{color:var(--muted);margin-bottom:16px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  .lead p{color:var(--muted);margin-bottom:16px;text-align:justify;hyphens:manual;-webkit-hyphens:manual}
   .lead p strong{color:var(--ink);font-weight:500}
   .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
   .btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:9999px;font:500 14px/1 var(--font-sans);border:1px solid var(--line);color:var(--ink);background:var(--surface);transition:border-color .15s,transform .15s}
@@ -96,7 +96,7 @@
   .pub .au strong{color:var(--ink);font-weight:600}
   .pub .vn{font-size:14px;line-height:22px;margin-top:4px;color:var(--muted)}
   .pub .vn strong{color:var(--ink);font-weight:600}
-  .pub .ds{color:var(--muted);font-size:15px;line-height:24px;margin-top:10px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  .pub .ds{color:var(--muted);font-size:15px;line-height:24px;margin-top:10px;text-align:justify;hyphens:manual;-webkit-hyphens:manual}
   .award{display:inline-block;margin-top:10px;font:600 12px/1 var(--font-sans);color:var(--warm);letter-spacing:.04em}
   .bib{margin-top:12px;padding:14px 16px;background:var(--surface-raised);border-radius:8px;font:13px/20px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
   .pubs-cta{margin-top:40px}
@@ -111,6 +111,7 @@
     .hero{padding:48px 0 40px}
     .hero-grid{grid-template-columns:1fr;gap:40px}
     h1{font-size:7.4vw}
+    body .lead p,body #bio p,body .pub .ds{text-align:left}
     .btn.lg{height:64px;padding:0 24px;gap:14px;font-size:17px;white-space:nowrap}
     .btn.lg img{width:30px;height:30px}
     .portrait{max-width:260px}
@@ -122,7 +123,7 @@
     .ghost{text-align:left;margin:0 0 -16px}
   }
 
-  #bio p{color:var(--muted);margin-bottom:16px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  #bio p{color:var(--muted);margin-bottom:16px;text-align:justify;hyphens:manual;-webkit-hyphens:manual}
   #bio strong{color:var(--ink);font-weight:500}
   #bio a{color:var(--accent)}
   #more{scroll-margin-top:80px}
