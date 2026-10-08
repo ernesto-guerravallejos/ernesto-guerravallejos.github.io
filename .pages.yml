@@ -2,10 +2,18 @@
 # Editing panel for Ernesto's website. Every save publishes to the live site in about a minute.
 
 media:
-  input: img
-  output: img
-  categories: [image]
-  rename: safe
+  - name: images
+    label: Images
+    input: img
+    output: img
+    extensions: [jpg, jpeg, png, webp, gif]
+    rename: safe
+  - name: videos
+    label: Videos
+    input: videos
+    output: videos
+    extensions: [mp4, webm]
+    rename: safe
 
 content:
   - name: profile
@@ -28,6 +36,7 @@ content:
         type: image
         description: A square or portrait photo works best (at least 800 px wide).
         options:
+          media: images
           extensions: [jpg, jpeg, png, webp]
       - name: bio
         label: Bio
@@ -99,9 +108,38 @@ content:
           - name: image
             label: Figure
             type: image
-            description: A figure from the paper. Crop out the caption before uploading.
+            description: >-
+              A figure from the paper (crop out the caption first). Animated GIF or WebP also work
+              and play automatically on the page.
             options:
-              extensions: [jpg, jpeg, png, webp]
+              media: images
+              extensions: [jpg, jpeg, png, webp, gif]
+          - name: media_link
+            label: Figure link (optional)
+            type: string
+            description: >-
+              Web address to open when someone clicks the figure, e.g. a YouTube video or a project page.
+              Leave empty to just open the figure in full size.
+          - name: video
+            label: Or upload a video (optional)
+            type: file
+            description: >-
+              An MP4 hosted on this site. Used only if "Figure link" is empty. Keep it under 50 MB
+              (for longer videos, upload to YouTube and use "Figure link" instead).
+            options:
+              media: videos
+              extensions: [mp4, webm]
+          - name: media_link_target
+            label: Jump to a spot (optional)
+            type: string
+            description: >-
+              Make the link land on a specific part of the destination. Write either an exact short
+              phrase that appears on that page (e.g. Simulation results), a section id starting with #
+              (e.g. #demo), or for a video a start time in seconds like #t=30.
+          - name: media_link_label
+            label: Link text (optional)
+            type: string
+            description: The word shown next to Paper · bibtex · DOI. Defaults to "Video".
           - name: description
             label: Short description
             type: text
