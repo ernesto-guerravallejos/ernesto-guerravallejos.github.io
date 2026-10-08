@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta name="description" content="Ernesto Guerra-Vallejos — PhD economist, former startup CTO and Staff Data Scientist. Research in economics, causal inference, machine learning and AI.">
 <title>Ernesto Guerra-Vallejos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,6 +94,9 @@
   .pub-img img{width:100%;height:100%;object-fit:cover}
   .pub-img.fig{aspect-ratio:auto;background:none;display:block}
   .pub-img.fig img{height:auto;object-fit:contain;border-radius:8px}
+  .pub-img.fig.has-media{position:relative}
+  .pub-img.fig.has-media::after{content:"";position:absolute;right:10px;bottom:10px;width:36px;height:36px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l8 5-8 5z' fill='white'/%3E%3C/svg%3E") center/20px no-repeat;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .15s}
+  .pub-img.fig.has-media:hover::after{transform:scale(1.08)}
   .pub-img svg{width:52%;fill:none;stroke:var(--muted);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:.5}
   .pub .t{font:600 17px/24px var(--font-sans);color:var(--ink)}
   .pub .au{color:var(--muted);font-size:14px;line-height:22px;margin-top:4px}
@@ -244,7 +251,7 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function url(u) { u = String(u || '').trim(); return /^(https?:|mailto:|\/|img\/|media\/)/i.test(u) ? u : ''; }
+  function url(u) { u = String(u || '').trim(); return /^(https?:|mailto:|\/|img\/|media\/|videos\/)/i.test(u) ? u : ''; }
   function rel(p) { p = String(p || ''); return p.replace(/^\//, ''); }
 
   // Only basic formatting tags survive from the rich-text bio.
@@ -277,18 +284,33 @@
     return safe;
   }
 
+  // Where the figure points: an external page or an uploaded video, optionally
+  // jumping to one spot (an element id like "#demo", a time like "#t=30",
+  // or a short exact phrase from that page).
+  function mediaLink(p) {
+    var base = url(p.media_link) || (p.video ? rel(p.video) : '');
+    if (!base) return '';
+    var target = String(p.media_link_target || '').trim();
+    if (!target) return base;
+    base = base.split('#')[0];
+    return base + (target.charAt(0) === '#'
+      ? target
+      : '#:~:text=' + encodeURIComponent(target).replace(/-/g, '%2D'));
+  }
+
   function pubCard(p, owner) {
-    var links = [];
+    var links = [], media = mediaLink(p);
     if (url(p.paper_url)) links.push('<a href="' + esc(url(p.paper_url)) + '" target="_blank" rel="noopener">Paper</a>');
     if (p.bibtex) links.push('<a href="#" class="bib-toggle" aria-expanded="false">bibtex</a>');
     if (p.doi) {
       var doi = String(p.doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i, '');
       links.push('<a href="https://doi.org/' + esc(doi) + '" target="_blank" rel="noopener">DOI</a>');
     }
+    if (media) links.push('<a href="' + esc(media) + '" target="_blank" rel="noopener">' + esc(p.media_link_label || 'Video') + '</a>');
     var venue = '<strong>' + esc([p.journal, p.year].filter(Boolean).join(' ')) + '</strong>';
     var meta = [venue].concat(p.volume_pages ? [esc(p.volume_pages)] : []).concat(links).join(' · ');
     var img = p.image
-      ? '<a class="pub-img fig" href="' + esc(rel(p.image)) + '" target="_blank" rel="noopener" title="Open full figure"><img src="' + esc(rel(p.image)) + '" alt="Figure from: ' + esc(p.title) + '" loading="lazy"></a>'
+      ? '<a class="pub-img fig' + (media ? ' has-media' : '') + '" href="' + esc(media || rel(p.image)) + '" target="_blank" rel="noopener" title="' + (media ? 'Watch the full video' : 'Open full figure') + '"><img src="' + esc(rel(p.image)) + '" alt="Figure from: ' + esc(p.title) + '" loading="lazy"></a>'
       : '<div class="pub-img"><svg viewBox="0 0 80 64"><use href="#perch"/></svg></div>';
     return '<li class="pub">' + img +
       '<div class="pub-body">' +
